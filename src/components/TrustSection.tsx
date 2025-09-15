@@ -13,19 +13,19 @@ const TrustSection = () => {
   const stats = [
     {
       icon: Building2,
-      value: '500+',
+      value: '25+',
       label: 'Properties Managed',
-      description: 'Across Alberta'
+      description: 'Growing portfolio'
     },
     {
       icon: Users,
-      value: '98%',
+      value: '100%',
       label: 'Client Satisfaction',
       description: 'Rated excellent'
     },
     {
       icon: DollarSign,
-      value: '$2.5M+',
+      value: '$150K+',
       label: 'Revenue Generated',
       description: 'For our clients'
     },
