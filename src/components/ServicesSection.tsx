@@ -1,61 +1,72 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { 
-  FileCheck, 
-  Users, 
-  Calculator, 
-  Shield, 
-  ClipboardList, 
+import {
+  FileCheck,
+  Users,
+  Calculator,
+  Shield,
+  ClipboardList,
   Headphones,
   TrendingUp,
-  Building
+  Building,
+  Network,
+  Target
 } from 'lucide-react';
-import complianceIcon from '@/assets/compliance-icon.jpg';
 
 const ServicesSection = () => {
   const complianceServices = [
     {
       icon: FileCheck,
-      title: 'Business License Management',
-      description: 'Complete application and renewal process for all municipal requirements'
+      title: 'License & Permit Support',
+      description: 'Expert guidance through municipal licensing, permits, and renewal processes'
     },
     {
       icon: Calculator,
-      title: 'Tourism Levy Automation',
-      description: 'Automated calculation and remittance of Alberta\'s 4% tourism levy'
+      title: 'Regulatory Compliance Advisory',
+      description: 'Strategic guidance for navigating Alberta property regulations and requirements'
     },
     {
       icon: Shield,
-      title: 'Fire Safety Compliance',
-      description: 'Development and maintenance of required fire safety plans and documentation'
+      title: 'Safety & Code Planning',
+      description: 'Consultation on safety plans, building codes, and regulatory documentation'
     },
     {
       icon: ClipboardList,
-      title: 'Insurance Coordination',
-      description: 'Ensuring proper coverage and compliance with municipal insurance requirements'
+      title: 'Insurance & Risk Advisory',
+      description: 'Guidance on proper coverage, liability protection, and risk management'
     }
   ];
 
-  const managementServices = [
+  const consultingServices = [
     {
       icon: Building,
-      title: 'Listing Optimization',
-      description: 'Professional listings across all major platforms with dynamic pricing'
+      title: 'Property Investment Strategy',
+      description: 'Strategic consultation for property acquisition, setup, and optimization'
     },
     {
       icon: Users,
-      title: 'Guest Management',
-      description: 'Complete guest communication, check-in/out, and experience management'
+      title: 'Property Operations Consulting',
+      description: 'Expert advice on management best practices and operational efficiency'
+    },
+    {
+      icon: Network,
+      title: 'Service Provider Network',
+      description: 'Vetted referrals to trusted contractors, plumbers, HVAC technicians, and marketing specialists'
+    },
+    {
+      icon: Target,
+      title: 'Listing Optimization Coaching',
+      description: 'Personalized coaching on enhancing property listings, pricing strategy, and market positioning'
     },
     {
       icon: Headphones,
-      title: '24/7 Support',
-      description: 'Round-the-clock support for both property owners and guests'
+      title: 'Ongoing Advisory Support',
+      description: 'Dedicated support for compliance, operational, and strategic questions'
     },
     {
       icon: TrendingUp,
-      title: 'Performance Analytics',
-      description: 'Detailed reporting on bookings, revenue, and compliance status'
+      title: 'Performance & ROI Analysis',
+      description: 'Insights and recommendations for maximizing property value and returns'
     }
   ];
 
@@ -65,33 +76,33 @@ const ServicesSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold gradient-text mb-4">
-            Complete STR Management Solutions
+            Expert Property Consulting Services
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            From regulatory compliance to guest management, we provide comprehensive services 
-            that let you focus on growing your short-term rental portfolio.
+            From compliance strategy to investment optimization, we provide expert guidance
+            to help you successfully navigate Alberta's property landscape.
           </p>
         </div>
 
         {/* Compliance Services */}
         <div className="mb-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="max-w-4xl mx-auto">
             <div>
-              <h3 className="text-3xl font-bold text-foreground mb-6">
-                Compliance & Regulatory Management
+              <h3 className="text-3xl font-bold text-foreground mb-6 text-center">
+                Compliance & Regulatory Consulting
               </h3>
-              <p className="text-lg text-muted-foreground mb-8">
-                Navigate Alberta's complex STR regulations with confidence. We stay up-to-date 
-                on all municipal requirements so your properties remain compliant.
+              <p className="text-lg text-muted-foreground mb-8 text-center">
+                Navigate Alberta's complex property regulations with expert guidance. We help you
+                understand and meet all municipal requirements for successful property ownership and operation.
               </p>
-              
+
               <div className="grid gap-4">
                 {complianceServices.map((service, index) => (
                   <Card key={index} className="shadow-card transition-smooth hover:shadow-lg border-0">
                     <CardContent className="p-6">
                       <div className="flex items-start space-x-4">
-                        <div className="bg-secondary/10 p-3 rounded-lg">
-                          <service.icon className="h-6 w-6 text-secondary" />
+                        <div className="bg-primary/10 p-3 rounded-lg">
+                          <service.icon className="h-6 w-6 text-primary" />
                         </div>
                         <div>
                           <h4 className="font-semibold text-foreground mb-2">{service.title}</h4>
@@ -103,31 +114,23 @@ const ServicesSection = () => {
                 ))}
               </div>
             </div>
-            
-            <div className="lg:pl-8">
-              <img
-                src={complianceIcon}
-                alt="Compliance and regulatory management"
-                className="w-full h-auto rounded-lg shadow-card"
-              />
-            </div>
           </div>
         </div>
 
-        {/* Management Services */}
+        {/* Consulting Services */}
         <div>
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-foreground mb-4">
-              Full-Service Property Management
+              Strategic Property Consulting
             </h3>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Maximize your revenue and minimize your stress with our comprehensive 
-              property management services.
+              Maximize your success with expert guidance on investment strategy, operations,
+              and optimization for your property portfolio.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {managementServices.map((service, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {consultingServices.map((service, index) => (
               <Card key={index} className="shadow-card transition-smooth hover:shadow-lg hover:scale-105 border-0 bg-white">
                 <CardContent className="p-6 text-center">
                   <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">

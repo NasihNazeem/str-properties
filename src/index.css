@@ -9,39 +9,39 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 28% 17%;
+    --foreground: 270 7% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 28% 17%;
+    --card-foreground: 270 7% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 28% 17%;
+    --popover-foreground: 270 7% 15%;
 
-    --primary: 217 50% 23%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 28 61% 35%;
+    --primary-foreground: 28 29% 91%;
 
-    --secondary: 146 45% 45%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 30 28% 67%;
+    --secondary-foreground: 270 7% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 28 29% 91%;
+    --muted-foreground: 4 4% 35%;
 
-    --accent: 43 74% 66%;
-    --accent-foreground: 215 28% 17%;
+    --accent: 30 28% 67%;
+    --accent-foreground: 270 7% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 217 50% 23%;
+    --border: 28 29% 85%;
+    --input: 28 29% 85%;
+    --ring: 28 61% 35%;
 
     /* Custom design tokens for property management theme */
-    --hero-gradient: linear-gradient(135deg, hsl(217 50% 23%) 0%, hsl(217 45% 30%) 50%, hsl(146 45% 45%) 100%);
-    --trust-gradient: linear-gradient(90deg, hsl(146 45% 45%) 0%, hsl(146 50% 50%) 100%);
-    --card-shadow: 0 4px 20px -4px hsl(217 50% 23% / 0.15);
-    --hero-shadow: 0 20px 40px -12px hsl(217 50% 23% / 0.25);
-    --text-gradient: linear-gradient(135deg, hsl(217 50% 23%), hsl(146 45% 45%));
+    --hero-gradient: linear-gradient(135deg, hsl(270 7% 15%) 0%, hsl(4 4% 35%) 50%, hsl(28 61% 35%) 100%);
+    --trust-gradient: linear-gradient(90deg, hsl(28 61% 35%) 0%, hsl(30 28% 67%) 100%);
+    --card-shadow: 0 4px 20px -4px hsl(28 61% 35% / 0.15);
+    --hero-shadow: 0 20px 40px -12px hsl(28 61% 35% / 0.25);
+    --text-gradient: linear-gradient(135deg, hsl(28 61% 35%), hsl(30 28% 67%));
     
     /* Animation variables */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -113,6 +113,38 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Custom Scrollbar Styles */
+  * {
+    scrollbar-color: hsl(var(--primary)) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+    border-radius: 6px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: hsl(var(--primary) / 0.8);
+  }
+
+  *::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  *::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 }
 
 @layer utilities {
@@ -129,6 +161,8 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    padding-bottom: 0.1em;
+    line-height: 1.2;
   }
   
   .shadow-card {

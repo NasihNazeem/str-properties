@@ -1,50 +1,47 @@
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Clock,
-  Send
-} from 'lucide-react';
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    properties: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    properties: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       toast({
         title: "Message Sent Successfully!",
-        description: "We'll get back to you within 24 hours to discuss your STR management needs.",
+        description:
+          "We'll get back to you within 24 hours to discuss your property consulting needs.",
       });
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        properties: '',
-        message: ''
+        name: "",
+        email: "",
+        phone: "",
+        properties: "",
+        message: "",
       });
       setIsSubmitting(false);
     }, 1000);
@@ -53,28 +50,28 @@ const ContactSection = () => {
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
-      detail: '(403) 555-0123',
-      subdtail: '24/7 Emergency Line'
+      title: "Phone",
+      detail: "(403) 555-0123",
+      subdtail: "Consulting line",
     },
     {
       icon: Mail,
-      title: 'Email',
-      detail: 'info@albertastrmanagement.com',
-      subdtail: 'Response within 4 hours'
+      title: "Email",
+      detail: "info@kravenproperties.com",
+      subdtail: "Responds quickly",
     },
     {
       icon: MapPin,
-      title: 'Office',
-      detail: 'Calgary & Edmonton',
-      subdtail: 'Serving all of Alberta'
+      title: "Office",
+      detail: "Calgary",
+      subdtail: "Serving all of Alberta",
     },
     {
       icon: Clock,
-      title: 'Business Hours',
-      detail: 'Mon-Fri: 8AM-6PM',
-      subdtail: 'Emergency support 24/7'
-    }
+      title: "Business Hours",
+      detail: "Mon-Fri: 8AM-6PM",
+      subdtail: "Expert support available",
+    },
   ];
 
   return (
@@ -86,8 +83,8 @@ const ContactSection = () => {
             Ready to Get Started?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Let's discuss how we can help you maximize your short-term rental revenue 
-            while ensuring full regulatory compliance.
+            Let's discuss how we can help you maximize your property investment
+            success while ensuring full regulatory compliance.
           </p>
         </div>
 
@@ -100,7 +97,8 @@ const ContactSection = () => {
                   Get Your Free Consultation
                 </CardTitle>
                 <p className="text-muted-foreground">
-                  Tell us about your properties and we'll provide a custom management proposal.
+                  Tell us about your properties and we'll provide a custom
+                  consulting proposal.
                 </p>
               </CardHeader>
               <CardContent>
@@ -132,7 +130,7 @@ const ContactSection = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="phone">Phone Number</Label>
@@ -160,7 +158,9 @@ const ContactSection = () => {
                   </div>
 
                   <div>
-                    <Label htmlFor="message">Tell us about your properties</Label>
+                    <Label htmlFor="message">
+                      Tell us about your properties
+                    </Label>
                     <Textarea
                       id="message"
                       name="message"
@@ -180,7 +180,7 @@ const ContactSection = () => {
                     className="w-full"
                   >
                     {isSubmitting ? (
-                      'Sending...'
+                      "Sending..."
                     ) : (
                       <>
                         <Send className="h-5 w-5 mr-2" />
@@ -209,22 +209,29 @@ const ContactSection = () => {
                         <info.icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground">{info.title}</h4>
+                        <h4 className="font-semibold text-foreground">
+                          {info.title}
+                        </h4>
                         <p className="text-foreground">{info.detail}</p>
-                        <p className="text-sm text-muted-foreground">{info.subdtail}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {info.subdtail}
+                        </p>
                       </div>
                     </div>
                   ))}
                 </CardContent>
               </Card>
 
-              <Card className="shadow-card border-0 gradient-trust text-white">
+              <Card className="shadow-card border-0 bg-muted">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-3">Emergency Support</h3>
-                  <p className="text-white/90 mb-4">
-                    Property emergency? Guest issue? We're available 24/7 to handle any urgent situations.
+                  <h3 className="text-xl font-bold mb-3 text-foreground">
+                    Expert Advisory
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    Need immediate guidance on compliance or property matters?
+                    Our expert consultants are here to help.
                   </p>
-                  <Button variant="professional" className="w-full">
+                  <Button variant="hero" className="w-full">
                     Call Emergency Line
                   </Button>
                 </CardContent>

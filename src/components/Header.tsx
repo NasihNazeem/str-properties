@@ -1,24 +1,29 @@
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Menu, X, Phone } from 'lucide-react';
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X, Phone } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: 'Services', href: '#services' },
-    { name: 'About', href: '#about' },
-    { name: 'Compliance', href: '#compliance' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Services", href: "#services" },
+    { name: "About", href: "#about" },
+    { name: "Compliance", href: "#compliance" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
     <header className="bg-white shadow-card sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
+          <div className="flex-shrink-0 flex items-center space-x-3">
+            <img
+              src="/kraven-logo-2.png"
+              alt="Kraven Properties Logo"
+              className="h-10 w-auto"
+            />
             <h1 className="text-2xl font-bold gradient-text">
-              Alberta STR Management
+              Kraven Properties
             </h1>
           </div>
 
@@ -54,7 +59,11 @@ const Header = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-foreground hover:text-primary p-2"
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -74,7 +83,11 @@ const Header = () => {
                 </a>
               ))}
               <div className="pt-4 pb-2">
-                <Button variant="hero" className="w-full" onClick={() => setIsMenuOpen(false)}>
+                <Button
+                  variant="hero"
+                  className="w-full"
+                  onClick={() => setIsMenuOpen(false)}
+                >
                   Get Started
                 </Button>
               </div>

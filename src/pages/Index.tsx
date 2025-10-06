@@ -4,7 +4,6 @@ import ServicesSection from '@/components/ServicesSection';
 import TrustSection from '@/components/TrustSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import ThemeCustomizer from '@/components/ThemeCustomizer';
 
 const Index = () => {
   return (
@@ -17,7 +16,6 @@ const Index = () => {
         <ContactSection />
       </main>
       <Footer />
-      <ThemeCustomizer />
     </div>
   );
 };

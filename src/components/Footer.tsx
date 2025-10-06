@@ -1,49 +1,49 @@
-import { Button } from '@/components/ui/button';
-import { 
-  Phone, 
-  Mail, 
+import { Button } from "@/components/ui/button";
+import {
+  Phone,
+  Mail,
   MapPin,
   Facebook,
   Twitter,
   Linkedin,
-  Instagram
-} from 'lucide-react';
+  Instagram,
+} from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Compliance Hub', href: '#compliance' },
-    { name: 'Owner Portal', href: '#portal' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' }
+    { name: "Services", href: "#services" },
+    { name: "About Us", href: "#about" },
+    { name: "Compliance Hub", href: "#compliance" },
+    { name: "Owner Portal", href: "#portal" },
+    { name: "Blog", href: "#blog" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const services = [
-    'License Management',
-    'Tourism Levy Automation',
-    'Fire Safety Compliance',
-    'Property Management',
-    '24/7 Guest Support',
-    'Revenue Optimization'
+    "License Application Support",
+    "Tourism Levy Advisory",
+    "Fire Safety Consulting",
+    "Compliance Strategy",
+    "Operations Consulting",
+    "Performance Analysis",
   ];
 
   const resources = [
-    'Calgary STR Requirements',
-    'Edmonton STR Guide',
-    'Tourism Levy Calculator',
-    'Fire Safety Checklist',
-    'Owner Resources',
-    'Regulatory Updates'
+    "Calgary Property Requirements",
+    "Edmonton Property Guide",
+    "Regulatory Compliance Guide",
+    "Safety Planning Checklist",
+    "Owner Resources",
+    "Regulatory Updates",
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' }
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Instagram, href: "#", label: "Instagram" },
   ];
 
   return (
@@ -53,14 +53,19 @@ const Footer = () => {
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <h3 className="text-2xl font-bold mb-4">
-              Alberta STR Management
-            </h3>
+            <div className="flex items-center space-x-3 mb-4">
+              <img
+                src="/kraven-logo-2.png"
+                alt="Kraven Properties Logo"
+                className="h-10 w-auto brightness-0 invert"
+              />
+              <h3 className="text-2xl font-bold">Kraven Properties</h3>
+            </div>
             <p className="text-white/80 mb-6 leading-relaxed">
-              Professional short-term rental management with complete regulatory compliance 
-              for property owners across Alberta.
+              Expert property consulting and regulatory guidance for property
+              investors and owners across Alberta.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
@@ -69,7 +74,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent" />
-                <span className="text-white/90">info@albertastrmanagement.com</span>
+                <span className="text-white/90">info@kravenproperties.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-accent" />
@@ -151,9 +156,9 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-            
+
             <div className="text-white/80 text-sm">
-              Follow us for the latest STR industry updates
+              Follow us for property insights and consulting tips
             </div>
           </div>
         </div>
@@ -163,9 +168,7 @@ const Footer = () => {
       <div className="border-t border-white/20 bg-primary/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/70">
-            <div>
-              © {currentYear} Alberta STR Management. All rights reserved.
-            </div>
+            <div>© {currentYear} Kraven Properties. All rights reserved.</div>
             <div className="flex space-x-6 mt-2 md:mt-0">
               <a href="#" className="hover:text-accent transition-smooth">
                 Privacy Policy
