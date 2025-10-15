@@ -14,20 +14,23 @@ const Footer = () => {
 
   const quickLinks = [
     { name: "Services", href: "#services" },
-    { name: "About Us", href: "#about" },
-    { name: "Compliance Hub", href: "#compliance" },
-    { name: "Owner Portal", href: "#portal" },
-    { name: "Blog", href: "#blog" },
+    { name: "About Us", href: "about" },
     { name: "Contact", href: "#contact" },
+    // { name: "Compliance Hub", href: "#compliance" },
+    // { name: "Owner Portal", href: "#portal" },
+    // { name: "Blog", href: "#blog" },
   ];
 
   const services = [
-    "License Application Support",
-    "Tourism Levy Advisory",
-    "Fire Safety Consulting",
-    "Compliance Strategy",
-    "Operations Consulting",
-    "Performance Analysis",
+    "Licensing and Compliance Advisory",
+    "Property Setup Strategy",
+    "Property Operations Consulting",
+    "Service Provider Network",
+    "Listing Optimization Coaching",
+    "24/7 Ongoing Advisory Support",
+    "Performance & ROI Analysis",
+    "Safety & Code Compliance",
+    "Insurance & Risk Advisory",
   ];
 
   const resources = [
@@ -40,19 +43,19 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Instagram, href: "#", label: "Instagram" },
+    // { icon: Facebook, href: "#", label: "Facebook" },
+    // { icon: Twitter, href: "#", label: "Twitter" },
+    // { icon: Linkedin, href: "#", label: "LinkedIn" },
+    // { icon: Instagram, href: "#", label: "Instagram" },
   ];
 
   return (
     <footer className="bg-primary text-white">
       {/* Main Footer Content */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-12 lg:gap-16">
           {/* Company Info */}
-          <div className="lg:col-span-1">
+          <div>
             <div className="flex items-center space-x-3 mb-4">
               <img
                 src="/kraven-logo-2.png"
@@ -62,8 +65,8 @@ const Footer = () => {
               <h3 className="text-2xl font-bold">Kraven Properties</h3>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
-              Expert property consulting and regulatory guidance for property
-              investors and owners across Alberta.
+              Providing clear, dependable support to help you manage compliance,
+              permitting, and strategic property planning.
             </p>
 
             {/* Contact Info */}
@@ -74,19 +77,19 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent" />
-                <span className="text-white/90">info@kravenproperties.com</span>
+                <span className="text-white/90">team@kravenproperties.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-5 w-5 text-accent" />
-                <span className="text-white/90">Calgary & Edmonton, AB</span>
+                <span className="text-white/90">Calgary, AB</span>
               </div>
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="lg:text-center">
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+            <ul className="space-y-2 lg:inline-block lg:text-left">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a
@@ -113,7 +116,7 @@ const Footer = () => {
           </div>
 
           {/* Resources */}
-          <div>
+          {/* <div>
             <h4 className="text-lg font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 mb-6">
               {resources.map((resource, index) => (
@@ -126,10 +129,10 @@ const Footer = () => {
                   </a>
                 </li>
               ))}
-            </ul>
+            </ul> */}
 
-            {/* Newsletter Signup */}
-            <div>
+          {/* Newsletter Signup */}
+          {/* <div>
               <h5 className="font-semibold mb-2">Stay Updated</h5>
               <p className="text-white/80 text-sm mb-3">
                 Get regulatory updates and industry insights.
@@ -138,13 +141,14 @@ const Footer = () => {
                 Subscribe to Newsletter
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Social Links */}
         <div className="border-t border-white/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex space-x-4 mb-4 md:mb-0">
+              <div>© {currentYear} Kraven Properties. All rights reserved.</div>
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
@@ -165,24 +169,11 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/20 bg-primary/80">
+      {/* <div className="border-t border-white/20 bg-primary/80">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/70">
-            <div>© {currentYear} Kraven Properties. All rights reserved.</div>
-            <div className="flex space-x-6 mt-2 md:mt-0">
-              <a href="#" className="hover:text-accent transition-smooth">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-accent transition-smooth">
-                Terms of Service
-              </a>
-              <a href="#" className="hover:text-accent transition-smooth">
-                Regulatory Compliance
-              </a>
-            </div>
-          </div>
+          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-white/70"></div>
         </div>
-      </div>
+      </div> */}
     </footer>
   );
 };
