@@ -8,7 +8,6 @@ const Header = () => {
   const navigation = [
     { name: "Services", href: "#services" },
     { name: "About", href: "#about" },
-    { name: "Compliance", href: "#compliance" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -22,7 +21,7 @@ const Header = () => {
               alt="Kraven Properties Logo"
               className="h-10 w-auto"
             />
-            <h1 className="text-2xl font-bold gradient-text">
+            <h1 className="text-2xl font-bold text-primary">
               Kraven Properties
             </h1>
           </div>
