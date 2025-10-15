@@ -57,7 +57,7 @@ const ContactSection = () => {
     {
       icon: Mail,
       title: "Email",
-      detail: "info@kravenproperties.com",
+      detail: "team@kravenproperties.com",
       subdtail: "Responds quickly",
     },
     {
@@ -70,7 +70,7 @@ const ContactSection = () => {
       icon: Clock,
       title: "Business Hours",
       detail: "Mon-Fri: 8AM-6PM",
-      subdtail: "Expert support available",
+      subdtail: "Support available",
     },
   ];
 

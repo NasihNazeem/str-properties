@@ -1,15 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Shield, MapPin } from "lucide-react";
-import heroImage from "@/assets/hero-property.jpg";
 
 const HeroSection = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
-          src={heroImage}
+          src="/hero-background.jpg"
           alt="Alberta property investment"
           className="w-full h-full object-cover"
         />
@@ -19,28 +25,20 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
         <div className="max-w-3xl">
-          {/* Trust Badge */}
-          <div className="animate-fade-in mb-6">
-            <Badge
-              variant="secondary"
-              className="bg-white/10 text-white border-white/20 backdrop-blur-sm"
-            >
-              <Shield className="h-4 w-4 mr-2" />
-              Registered Alberta Business
-            </Badge>
-          </div>
-
           {/* Main Headline */}
           <h1 className="animate-slide-up text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Expert Property Consulting in
-            <span className="block text-accent"> Alberta</span>
+            Professional Property Consultants in
+            <span className="block text-accent">Alberta</span>
           </h1>
 
           {/* Subheadline */}
           <p className="animate-slide-up text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-            Navigate Alberta's property regulations with confidence. We provide
+            {/* Navigate Alberta's property regulations with confidence. We provide
             expert guidance and support to help you stay compliant and maximize
-            your property investment success.
+            your property investment success. 
+             */}
+            Providing clear, dependable support to help you manage compliance,
+            permitting, and strategic property planning.
           </p>
 
           {/* Key Benefits */}
@@ -49,7 +47,7 @@ const HeroSection = () => {
               "Regulatory Compliance Strategy & Guidance",
               "License & Permit Application Support",
               "Property Safety Planning & Documentation",
-              "Investment Strategy & Optimization",
+              "Listing Strategy & Optimization",
             ].map((benefit, index) => (
               <div key={index} className="flex items-center text-white">
                 <CheckCircle className="h-5 w-5 mr-3 text-accent flex-shrink-0" />
@@ -81,11 +79,13 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="animate-slide-up flex flex-col sm:flex-row gap-4">
-            <Button variant="cta" size="xl" className="min-w-[200px]">
+            <Button
+              variant="cta"
+              size="xl"
+              className="min-w-[200px]"
+              onClick={scrollToContact}
+            >
               Get Free Consultation
-            </Button>
-            <Button variant="professional" size="xl" className="min-w-[200px]">
-              Learn More
             </Button>
           </div>
         </div>
