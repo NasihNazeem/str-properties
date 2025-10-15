@@ -5,17 +5,31 @@ import { Menu, X, Phone } from "lucide-react";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // If not on home page, navigate to home page with hash
+      window.location.href = "/#contact";
+    }
+    setIsMenuOpen(false);
+  };
+
   const navigation = [
-    { name: "Services", href: "#services" },
+    { name: "Services", href: "./#services" },
     { name: "About", href: "/about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact", href: "./#contact" },
   ];
 
   return (
     <header className="bg-white shadow-card sticky top-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0 flex items-center space-x-3">
+          <a
+            href="/"
+            className="flex-shrink-0 flex items-center space-x-3 hover:opacity-80 transition-smooth"
+          >
             <img
               src="/kraven-logo-2.png"
               alt="Kraven Properties Logo"
@@ -24,7 +38,7 @@ const Header = () => {
             <h1 className="text-2xl font-bold text-primary">
               Kraven Properties
             </h1>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
@@ -47,7 +61,7 @@ const Header = () => {
               <Phone className="h-4 w-4 mr-2" />
               <span>(403) 555-0123</span>
             </div>
-            <Button variant="hero" size="sm">
+            <Button variant="hero" size="sm" onClick={scrollToContact}>
               Get Started
             </Button>
           </div>
@@ -85,7 +99,7 @@ const Header = () => {
                 <Button
                   variant="hero"
                   className="w-full"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={scrollToContact}
                 >
                   Get Started
                 </Button>

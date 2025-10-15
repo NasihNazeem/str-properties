@@ -12,7 +12,7 @@ const About = () => {
   const values = [
     {
       icon: Award,
-      title: "20+ Years Experience",
+      title: "15+ Years Experience",
       description: "Combined industry knowledge driving success",
     },
     {

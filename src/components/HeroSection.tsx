@@ -3,11 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Shield, MapPin } from "lucide-react";
 
 const HeroSection = () => {
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleEmailClick = () => {
+    window.location.href = "mailto:team@kravenproperties.com?subject=Free Consultation Request";
   };
 
   return (
@@ -83,7 +80,7 @@ const HeroSection = () => {
               variant="cta"
               size="xl"
               className="min-w-[200px]"
-              onClick={scrollToContact}
+              onClick={handleEmailClick}
             >
               Get Free Consultation
             </Button>
