@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, Clock } from "lucide-react";
 
 const Blog = () => {
   const blogPosts = [
@@ -65,42 +63,36 @@ const Blog = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {blogPosts.map((post) => (
-                <Link key={post.id} to={`/blog/${post.slug}`}>
-                  <article className="bg-white rounded-lg shadow-card border border-border overflow-hidden hover:shadow-lg transition-smooth group h-full">
-                    <div className="aspect-video bg-muted relative overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
-                        <span className="text-white/60 text-sm font-medium">
-                          {post.category}
-                        </span>
-                      </div>
+                <article
+                  key={post.id}
+                  className="bg-white rounded-lg shadow-card border border-border overflow-hidden hover:shadow-lg transition-smooth group h-full"
+                >
+                  <div className="aspect-video bg-muted relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40 flex items-center justify-center">
+                      <span className="text-white/60 text-sm font-medium">
+                        {post.category}
+                      </span>
                     </div>
-                    <div className="p-6">
-                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
-                        <span className="flex items-center gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {post.date}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="h-4 w-4" />
-                          {post.readTime}
-                        </span>
-                      </div>
-                      <h2 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-smooth">
-                        {post.title}
-                      </h2>
-                      <p className="text-muted-foreground mb-4 line-clamp-3">
-                        {post.excerpt}
-                      </p>
-                      <Button
-                        variant="ghost"
-                        className="text-primary p-0 h-auto font-medium"
-                      >
-                        Read More
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="h-4 w-4" />
+                        {post.date}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="h-4 w-4" />
+                        {post.readTime}
+                      </span>
                     </div>
-                  </article>
-                </Link>
+                    <h2 className="text-xl font-bold text-foreground mb-3">
+                      {post.title}
+                    </h2>
+                    <p className="text-muted-foreground mb-4 line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                  </div>
+                </article>
               ))}
             </div>
 
