@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   MapPin,
   Bed,
@@ -70,8 +70,33 @@ const ListingsCarousel = () => {
     },
   ];
 
-  const itemsPerView = 3; // Show 3 cards at a time on desktop
+  // Responsive items per view: 1 on mobile, 2 on tablet, 3 on desktop
+  const getItemsPerView = () => {
+    if (typeof window === 'undefined') return 1;
+    const width = window.innerWidth;
+    if (width < 768) return 1; // Mobile
+    if (width < 1024) return 2; // Tablet
+    return 3; // Desktop
+  };
+
+  const [itemsPerView, setItemsPerView] = useState(1); // Start with 1 for mobile-first
   const maxIndex = Math.max(0, listings.length - itemsPerView);
+  const totalPages = Math.ceil(listings.length / itemsPerView);
+
+  // Set initial value and update on window resize
+  useEffect(() => {
+    // Set initial value
+    setItemsPerView(getItemsPerView());
+
+    const handleResize = () => {
+      const newItemsPerView = getItemsPerView();
+      setItemsPerView(newItemsPerView);
+      setCurrentIndex(0); // Reset to first slide on resize
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
@@ -98,7 +123,7 @@ const ListingsCarousel = () => {
             size="icon"
             onClick={prevSlide}
             disabled={currentIndex === 0}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden md:flex disabled:opacity-30"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex disabled:opacity-30 md:-left-4"
           >
             <ChevronLeft className="h-6 w-6" />
           </Button>
@@ -108,17 +133,17 @@ const ListingsCarousel = () => {
             size="icon"
             onClick={nextSlide}
             disabled={currentIndex >= maxIndex}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden md:flex disabled:opacity-30"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex disabled:opacity-30 md:-right-4"
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
 
           {/* Carousel Container */}
-          <div className="overflow-hidden pr-4">
+          <div className="overflow-hidden mx-12 md:mx-0 px-1">
             <div
-              className="flex gap-6 transition-transform duration-500 ease-out"
+              className="flex gap-4 md:gap-6 transition-transform duration-500 ease-out"
               style={{
-                transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
+                transform: `translateX(calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (itemsPerView === 1 ? 1 : 1.5)}rem))`,
               }}
             >
               {listings.map((listing) => (
@@ -126,7 +151,10 @@ const ListingsCarousel = () => {
                   key={listing.id}
                   className="bg-white rounded-lg shadow-card border border-border overflow-hidden hover:shadow-lg transition-smooth group flex-shrink-0"
                   style={{
-                    width: `calc((100% - ${(itemsPerView - 1) * 1.5}rem) / ${itemsPerView})`,
+                    width: itemsPerView === 1
+                      ? '100%'
+                      : `calc((100% - ${(itemsPerView - 1) * 1.5}rem) / ${itemsPerView})`,
+                    maxWidth: itemsPerView === 1 ? '100%' : '400px',
                   }}
                 >
                   {/* Content */}
@@ -175,18 +203,23 @@ const ListingsCarousel = () => {
 
           {/* Carousel Indicators */}
           <div className="flex justify-center gap-2 mt-6">
-            {Array.from({ length: maxIndex + 1 }).map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`h-2 rounded-full transition-all ${
-                  currentIndex === index
-                    ? "w-8 bg-primary"
-                    : "w-2 bg-border hover:bg-primary/50"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+            {Array.from({ length: totalPages }).map((_, pageIndex) => {
+              const pageStartIndex = pageIndex * itemsPerView;
+              const isActive = Math.floor(currentIndex / itemsPerView) === pageIndex;
+
+              return (
+                <button
+                  key={pageIndex}
+                  onClick={() => setCurrentIndex(pageStartIndex)}
+                  className={`h-2 rounded-full transition-all ${
+                    isActive
+                      ? "w-8 bg-primary"
+                      : "w-2 bg-border hover:bg-primary/50"
+                  }`}
+                  aria-label={`Go to page ${pageIndex + 1}`}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
