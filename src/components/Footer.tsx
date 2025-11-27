@@ -12,15 +12,6 @@ import {
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const quickLinks = [
-    { name: "Services", href: "#services" },
-    { name: "About Us", href: "about" },
-    { name: "Contact", href: "#contact" },
-    // { name: "Compliance Hub", href: "#compliance" },
-    // { name: "Owner Portal", href: "#portal" },
-    // { name: "Blog", href: "#blog" },
-  ];
-
   const services = [
     "Licensing and Compliance Advisory",
     "Property Setup Strategy",
@@ -53,9 +44,9 @@ const Footer = () => {
     <footer className="bg-primary text-white">
       {/* Main Footer Content */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-12 lg:gap-16">
+        <div className="flex flex-col md:flex-row md:justify-between gap-12">
           {/* Company Info */}
-          <div>
+          <div className="md:max-w-md">
             <div className="flex items-center space-x-3 mb-4">
               <img
                 src="/kraven-logo-2.png"
@@ -73,7 +64,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-accent" />
-                <span className="text-white/90">(403) 555-0123</span>
+                <span className="text-white/90">(587) 325-5253</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-accent" />
@@ -86,25 +77,8 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="lg:text-center">
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 lg:inline-block lg:text-left">
-              {quickLinks.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-white/80 hover:text-accent transition-smooth"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Services */}
-          <div>
+          <div className="md:max-w-md">
             <h4 className="text-lg font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2">
               {services.map((service, index) => (

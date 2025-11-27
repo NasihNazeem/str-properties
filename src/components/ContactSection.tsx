@@ -51,7 +51,7 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Phone",
-      detail: "(403) 555-0123",
+      detail: "(587) 325-5253",
       subdtail: "Consulting line",
     },
     {
@@ -141,7 +141,7 @@ const ContactSection = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="mt-1"
-                        placeholder="(403) 555-0123"
+                        placeholder="(587) 325-5253"
                       />
                     </div>
                     <div>

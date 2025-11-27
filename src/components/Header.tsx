@@ -1,9 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Handle hash scrolling when component mounts or hash changes
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      // Small delay to ensure the page has rendered
+      setTimeout(() => {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location]);
 
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
@@ -11,8 +28,32 @@ const Header = () => {
       contactSection.scrollIntoView({ behavior: "smooth" });
     } else {
       // If not on home page, navigate to home page with hash
-      window.location.href = "/#contact";
+      navigate("/#contact");
     }
+    setIsMenuOpen(false);
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+
+    // Check if it's a hash link (starts with # or ./#)
+    if (href.startsWith("#") || href.startsWith("./#")) {
+      const hash = href.replace("./", "");
+      const sectionId = hash.substring(1);
+      const element = document.getElementById(sectionId);
+
+      if (element) {
+        // Already on the page, just scroll
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // Navigate to home page with hash
+        navigate(`/${hash}`);
+      }
+    } else {
+      // Regular navigation
+      navigate(href);
+    }
+
     setIsMenuOpen(false);
   };
 
@@ -49,6 +90,7 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-foreground hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-smooth"
                 >
                   {item.name}
@@ -61,7 +103,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <div className="flex items-center text-sm text-muted-foreground">
               <Phone className="h-4 w-4 mr-2" />
-              <span>(403) 555-0123</span>
+              <span>(587) 325-5253</span>
             </div>
             <Button variant="hero" size="sm" onClick={scrollToContact}>
               Get Started
@@ -91,8 +133,8 @@ const Header = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-foreground hover:text-primary block px-3 py-2 rounded-md text-base font-medium transition-smooth"
-                  onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}
                 </a>

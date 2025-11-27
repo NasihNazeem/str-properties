@@ -1,14 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Shield, MapPin } from "lucide-react";
+import { CheckCircle, MapPin } from "lucide-react";
 
 const HeroSection = () => {
   const handleEmailClick = () => {
-    window.location.href = "mailto:team@kravenproperties.com?subject=Free Consultation Request";
+    window.location.href =
+      "mailto:team@kravenproperties.com?subject=Free Consultation Request";
   };
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[100vh] flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img
@@ -30,10 +31,6 @@ const HeroSection = () => {
 
           {/* Subheadline */}
           <p className="animate-slide-up text-xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-            {/* Navigate Alberta's property regulations with confidence. We provide
-            expert guidance and support to help you stay compliant and maximize
-            your property investment success. 
-             */}
             Providing clear, dependable support to help you manage compliance,
             permitting, and strategic property planning.
           </p>

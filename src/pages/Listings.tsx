@@ -74,7 +74,7 @@ const Listings = () => {
 
   // Responsive items per view: 1 on mobile, 2 on tablet, 3 on desktop
   const getItemsPerView = () => {
-    if (typeof window === 'undefined') return 1;
+    if (typeof window === "undefined") return 1;
     const width = window.innerWidth;
     if (width < 768) return 1; // Mobile
     if (width < 1024) return 2; // Tablet
@@ -96,8 +96,8 @@ const Listings = () => {
       setCurrentIndex(0); // Reset to first slide on resize
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const nextSlide = () => {
@@ -164,7 +164,9 @@ const Listings = () => {
                 <div
                   className="flex gap-4 md:gap-6 transition-transform duration-500 ease-out"
                   style={{
-                    transform: `translateX(calc(-${currentIndex * (100 / itemsPerView)}% - ${currentIndex * (itemsPerView === 1 ? 1 : 1.5)}rem))`,
+                    transform: `translateX(calc(-${
+                      currentIndex * (100 / itemsPerView)
+                    }% - ${currentIndex * (itemsPerView === 1 ? 1 : 1.5)}rem))`,
                   }}
                 >
                   {listings.map((listing) => (
@@ -172,10 +174,13 @@ const Listings = () => {
                       key={listing.id}
                       className="bg-white rounded-lg shadow-card border border-border overflow-hidden hover:shadow-lg transition-smooth group flex-shrink-0"
                       style={{
-                        width: itemsPerView === 1
-                          ? '100%'
-                          : `calc((100% - ${(itemsPerView - 1) * 1.5}rem) / ${itemsPerView})`,
-                        maxWidth: itemsPerView === 1 ? '100%' : '400px',
+                        width:
+                          itemsPerView === 1
+                            ? "100%"
+                            : `calc((100% - ${
+                                (itemsPerView - 1) * 1.5
+                              }rem) / ${itemsPerView})`,
+                        maxWidth: itemsPerView === 1 ? "100%" : "400px",
                       }}
                     >
                       {/* Content */}
@@ -226,7 +231,8 @@ const Listings = () => {
               <div className="flex justify-center gap-2 mt-6">
                 {Array.from({ length: totalPages }).map((_, pageIndex) => {
                   const pageStartIndex = pageIndex * itemsPerView;
-                  const isActive = Math.floor(currentIndex / itemsPerView) === pageIndex;
+                  const isActive =
+                    Math.floor(currentIndex / itemsPerView) === pageIndex;
 
                   return (
                     <button
